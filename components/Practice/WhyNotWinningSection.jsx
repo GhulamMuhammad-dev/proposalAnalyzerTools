@@ -9,25 +9,25 @@ gsap.registerPlugin(ScrollTrigger);
 const sectionsData = [
   {
     title: "Generic",
-    color: "text-lime-400",
+    color: "text-primary-color",
     description: "Their Proposals Sound Like Everyone Else’s.",
     image: "/images/problem1.jpg",
   },
   {
     title: "Sloppy",
-    color: "text-lime-400",
+    color: "text-primary-color",
     description: "Typos, Weak Openings, And Unclear Value Kill Credibility.",
     image: "/images/problem2.jpg",
   },
   {
     title: "Misaligned",
-    color: "text-lime-400",
+    color: "text-primary-color",
     description: "They Don’t Match The Client’s Tone And Priorities.",
     image: "/images/problem3.jpg",
   },
   {
     title: "Ignored",
-    color: "text-lime-400",
+    color: "text-primary-color",
     description: "Clients Skip Them Before Reading Halfway.",
     image: "/images/problem4.jpg",
   },
@@ -78,23 +78,25 @@ export default function WhyNotWinningSection() {
   }, []); // IMPORTANT: empty deps so it doesn't recreate on state change
 
   return (
-    <section ref={containerRef} className="w-full bg-[#03131a] text-white py-20">
-      <div className="max-w-6xl mx-auto">
+    <section ref={containerRef} className="w-full  text-white py-20 relative h-screen flex items-center  justify-center ">
+      <div className="w-[90%]  md:p-16 p-4 relative">
+      <div className="w-[50%]">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-2">
+        <h2 className="text-3xl md:text-4xl font-bold mb-2">
           Why You’re Not Winning Enough Upwork Jobs
         </h2>
         <p className="text-gray-400 mb-12">
           Freelancers Lose Projects Every Day Because
         </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-4 items-center">
           {/* Left - Buttons */}
           <div className="flex flex-col gap-6">
             {sectionsData.map((section, index) => (
               <button
                 key={index}
-                className={`text-2xl font-bold text-left transition-colors duration-300 ${
+                className={`text-4xl font-bold text-left transition-colors duration-300 ${
                   activeIndex === index
                     ? section.color
                     : "text-gray-500 hover:text-gray-300"
@@ -125,7 +127,7 @@ export default function WhyNotWinningSection() {
 
           {/* Right - Card with Background Image (no Next/Image) */}
           <div
-            className="relative rounded-xl overflow-hidden border border-lime-400/50 h-[360px] md:h-[420px] p-6"
+            className="relative rounded-xl overflow-hidden  h-[360px] md:h-[420px] p-6"
             style={{
               backgroundImage: `url(${sectionsData[activeIndex].image})`,
               backgroundSize: "cover",

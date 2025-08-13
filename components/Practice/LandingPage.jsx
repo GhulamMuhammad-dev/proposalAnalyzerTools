@@ -14,7 +14,7 @@ const LandingPage = () => {
       
 
         {/* Content */}
-        <div className="  md:p-16 p-4 sm:w-[90%] relative flex flex-col  justify-center items-center md:items-start  gap-4 ">
+        <div className="  md:p-16 p-4 sm:w-[90%] relative flex flex-col  justify-center items-center md:items-start  gap-4  ">
           {/* Badge */}
           <Badge
             variant="outline"
