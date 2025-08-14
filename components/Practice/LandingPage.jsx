@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import WhyNotWinningSection from "./WhyNotWinningSection";
+import SolutionSection from "./SolutionSection";
+import FeatureHighlight from "./FeaturesHighlight";
 
 const LandingPage = () => {
   return (
@@ -48,6 +50,8 @@ const LandingPage = () => {
         </div>
       </section>
       <WhyNotWinningSection />
+      <SolutionSection />
+      <FeatureHighlight />
       
     </>
   );
