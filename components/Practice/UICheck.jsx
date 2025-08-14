@@ -1,5 +1,8 @@
 'use client'
+import { Section } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import PracticeCard from './PracticeCard'
+import Gradient from './Gradient'
 
 export default function UICheck() {
   const [isDark, setIsDark] = useState(false)
@@ -10,6 +13,7 @@ export default function UICheck() {
   }, [isDark])
 
   return (
+    <>
     <main className="my_container flex-col gap-6">
     <div className='max-w-5xl flex flex-col items-start gap-4'>
       <h1 className="text-8xl text-theme-purple">
@@ -31,6 +35,12 @@ export default function UICheck() {
         Toggle {isDark ? 'Light' : 'Dark'} Mode
       </button>
       </div>
+      
     </main>
+
+    <PracticeCard />
+    {/* <Gradient /> */}
+
+    </>
   )
 }

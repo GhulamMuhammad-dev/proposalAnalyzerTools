@@ -4,8 +4,8 @@ import LandingPage from "@/components/Practice/LandingPage";
 export default function Home() {
   return (
     <>
-      {/* <UICheck /> */}
-      <LandingPage />
+      <UICheck />
+      {/* <LandingPage /> */}
     </>
   );
 }
