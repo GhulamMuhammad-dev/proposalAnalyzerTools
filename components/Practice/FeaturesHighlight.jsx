@@ -1,61 +1,57 @@
 "use client";
 
-import React from "react";
+import { Lightbulb, Wand2, TrendingUp } from "lucide-react";
 
-const features = [
-  {
-    title: "AI Proposal Scoring",
-    description:
-      "Get A Clear Score With Reasoning So You Know Where You Stand.",
-    border: "border-lime-400",
-  },
-  {
-    title: "One-Click Upgrade",
-    description: "Generate A Refined, Professional Version Instantly.",
-    border: "border-lime-400",
-  },
-  {
-    title: "Smart Suggestions",
-    description:
-      "Specific Improvements For Tone, Clarity, And Client Appeal.",
-    border: "border-blue-400",
-  },
-];
+export default function FeatureHighlightsSection() {
+  const features = [
+    {
+      id: 1,
+      icon: <TrendingUp className="w-8 h-8 text-[#A7C957]" />,
+      title: "AI Proposal Scoring",
+      description:
+        "Get a clear score with reasoning so you know where you stand.",
+      gridClass: "md:col-start-1 md:row-start-1",
+    },
+    {
+      id: 2,
+      icon: <Lightbulb className="w-8 h-8 text-[#A7C957]" />,
+      title: "Smart Suggestions",
+      description:
+        "Specific improvements for tone, clarity, and client appeal.",
+      gridClass: "md:col-start-2 md:row-start-1 md:row-span-2",
+    },
+    {
+      id: 3,
+      icon: <Wand2 className="w-8 h-8 text-[#A7C957]" />,
+      title: "One-Click Upgrade",
+      description:
+        "Generate a refined, professional version instantly.",
+      gridClass: "md:col-start-1 md:row-start-2",
+    },
+  ];
 
-export default function FeatureHighlight() {
   return (
-    <section className="bg-[#03151b] py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <h2 className="text-white text-2xl md:text-3xl font-bold mb-10">
+    <section className="bg-dark-color py-20 px-6">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#FFFCF2]">
           Why Freelancers Love It
         </h2>
+      </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Column */}
-          <div className="flex flex-col gap-6">
-            {features.slice(0, 2).map((feature, i) => (
-              <div
-                key={i}
-                className={`flex flex-col justify-end bg-black text-white p-6 rounded-md border ${feature.border} h-48`}
-              >
-                <h3 className="font-bold text-lg">{feature.title}</h3>
-                <p className="text-sm opacity-80 mt-2">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Right Column */}
+      {/* Responsive grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:grid-rows-2 gap-6 max-w-7xl mx-auto p-6 md:p-10">
+        {features.map((f) => (
           <div
-            className={`flex flex-col justify-end bg-black text-white p-6 rounded-md border ${features[2].border} h-full min-h-[24rem]`}
+            key={f.id}
+            className={`bg-dark-color border border-primary-color rounded-2xl p-6 shadow-lg text-left flex flex-col justify-end ${f.gridClass}`}
           >
-            <h3 className="font-bold text-lg">{features[2].title}</h3>
-            <p className="text-sm opacity-80 mt-2">
-              {features[2].description}
-            </p>
+            <div className="mb-4">{f.icon}</div>
+            <h3 className="text-xl font-semibold text-[#FFFCF2] mb-2">
+              {f.title}
+            </h3>
+            <p className="text-[#FFFCF2]/80 text-sm">{f.description}</p>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

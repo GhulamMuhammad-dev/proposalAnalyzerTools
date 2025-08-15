@@ -2,9 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import WhyNotWinningSection from "./WhyNotWinningSection";
 import SolutionSection from "./SolutionSection";
 import FeatureHighlight from "./FeaturesHighlight";
+import HowItWorks from "./HowItWork";
+import ClosingSection from "./ClosingSection";
+import BetaInvitationSection from "./BetaInvitationSection";
+import SocialProofSection from "./SocialProofSection";
+import ProblemSection from "./ProblemSection";
 
 const LandingPage = () => {
   return (
@@ -49,9 +53,13 @@ const LandingPage = () => {
           </Button>
         </div>
       </section>
-      <WhyNotWinningSection />
+      <ProblemSection />
       <SolutionSection />
       <FeatureHighlight />
+      <HowItWorks />
+      <ClosingSection />
+      <BetaInvitationSection />
+      <SocialProofSection />
       
     </>
   );
