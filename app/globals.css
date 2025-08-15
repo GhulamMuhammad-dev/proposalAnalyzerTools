@@ -43,12 +43,31 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight:900;
+    /* font-weight:900; */
   }
 }
 
 /* Utilities */
 @layer utilities {
+  
+  .h1_heading_md{
+    @apply md:text-7xl md:text-center md:leading-18   sm:text-7xl sm:text-center sm:leading-16  text-4xl text-center leading-10  ;
+  
+  }
+
+  .hero_content_container{
+    @apply p-4 relative flex flex-col justify-center items-center   gap-8  sm:p-8 md:p-16;
+  }
+
+  .hero_headSub {
+    @apply max-w-4xl flex flex-col items-center gap-4 ;
+  }
+
+  .subHeading {
+    @apply text-sm max-w-2xl text-center normal-case    md:text-lg  ;
+    font-family: var(--font-body);
+  }
+
   .text-theme-purple {
     color: var(--color-purple);
   }
