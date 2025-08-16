@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 @import "tailwindcss";
 
@@ -20,6 +21,7 @@
  
   --font-heading: 'Geist', sans-serif;
   --font-body: 'Lato', sans-serif;
+  --font-style: 'Oswald', sans-serif;
 
   --main-text-color: var(--color-dark-color);
   --background-color: var(--color-light-color);
@@ -43,12 +45,21 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    /* font-family: var(--font-style); */
+
     /* font-weight:900; */
   }
 }
 
 /* Utilities */
 @layer utilities {
+
+  .text-stroke {
+    -webkit-text-stroke: 2px var(--color-primary-color);
+    font-family: var(--font-style);
+    color: transparent;
+  }
+ 
   
   .h1_heading_md{
     @apply md:text-7xl md:text-center md:leading-18   sm:text-7xl sm:text-center sm:leading-16  text-4xl text-center leading-10  ;
@@ -64,7 +75,7 @@
   }
 
   .subHeading {
-    @apply text-sm max-w-2xl text-center normal-case    md:text-lg  ;
+    @apply text-4xl text-center font-bold mb-10 ;
     font-family: var(--font-body);
   }
 

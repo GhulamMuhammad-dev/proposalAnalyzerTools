@@ -6,19 +6,19 @@ import { useState, useEffect } from "react";
 const problems = [
   {
     text: "Their Proposals Sound Like Everyone Else’s.",
-    bg: "/images/problem1.jpg", // Replace with your image paths
+
   },
   {
     text: "Typos, Weak Openings, And Unclear Value Kill Credibility.",
-    bg: "/images/problem2.jpg",
+
   },
   {
     text: "They Don’t Match The Client’s Tone And Priorities.",
-    bg: "/images/problem3.jpg",
+
   },
   {
     text: "Clients Skip Them Before Reading Halfway.",
-    bg: "/images/bg4.jpg",
+
   },
 ];
 
@@ -34,7 +34,7 @@ export default function ProblemSection() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-dark-color px-4">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center  px-4 ">
       <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl">
         <AnimatePresence mode="wait">
           <motion.div
@@ -44,22 +44,31 @@ export default function ProblemSection() {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.8 }}
             className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center rounded-2xl"
-            style={{
-              backgroundImage: `url(${problems[index].bg})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
           >
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-dark-color/50 rounded-2xl border border-primary-color"></div>
+ 
+          
 
             {/* Text */}
-            <h2 className="relative z-10 text-2xl md:text-3xl font-semibold text-light-color text-center px-4">
+            <h2
+              data-text={problems[index].text}
+              className="relative z-10 text-4xl md:text-8xl font-semibold text-light-color text-center px-4
+             before:content-[attr(data-text)] before:absolute before:inset-0 before:top-full
+             before:text-primary-color before:opacity-40 before:scale-y-[-1]
+             before:transform before:skew-x-12 before:blur-sm"
+            >
               {problems[index].text}
             </h2>
 
             {/* Bottom tag */}
-            <p className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-primary-color text-white text-sm px-4 py-1 rounded z-10">
+            <p
+              className=" hidden md:block md:absolute  md:bottom-10  md:right-0 -translate-x-1/2 
+             rotate-6 md:-rotate-5 hover:rotate-0 
+             cursor-pointer bg-primary-color text-white border border-light-color 
+             text-[12px] 
+             px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 
+             rounded z-10 
+            "
+            >
               You Work Hard. You Deserve Better Than Being Ignored.
             </p>
           </motion.div>
