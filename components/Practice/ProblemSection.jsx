@@ -6,19 +6,15 @@ import { useState, useEffect } from "react";
 const problems = [
   {
     text: "Their Proposals Sound Like Everyone Else’s.",
-
   },
   {
     text: "Typos, Weak Openings, And Unclear Value Kill Credibility.",
-
   },
   {
     text: "They Don’t Match The Client’s Tone And Priorities.",
-
   },
   {
     text: "Clients Skip Them Before Reading Halfway.",
-
   },
 ];
 
@@ -34,7 +30,9 @@ export default function ProblemSection() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center  px-4 ">
+    <div className="w-full min-h-screen flex flex-col justify-center  items-center ">
+
+
       <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl">
         <AnimatePresence mode="wait">
           <motion.div
@@ -45,9 +43,6 @@ export default function ProblemSection() {
             transition={{ duration: 0.8 }}
             className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center rounded-2xl"
           >
- 
-          
-
             {/* Text */}
             <h2
               data-text={problems[index].text}

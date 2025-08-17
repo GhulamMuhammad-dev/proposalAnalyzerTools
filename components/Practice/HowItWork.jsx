@@ -26,7 +26,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-[#001219] py-16 px-6">
+    <section className="bg-dark-color h-screen flex items-center">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-[#FFFCF2] mb-12"

@@ -75,7 +75,7 @@
   }
 
   .subHeading {
-    @apply text-4xl text-center font-bold mb-10 ;
+    @apply text-4xl text-center font-bold  ;
     font-family: var(--font-body);
   }
 

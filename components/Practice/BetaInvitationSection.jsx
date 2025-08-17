@@ -31,7 +31,7 @@ export default function BetaInvitationSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#001219] py-20 px-6">
+    <section ref={sectionRef} className="bg-dark-color h-screen flex items-center">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="animate-fade text-3xl md:text-4xl font-bold text-[#FFFCF2] mb-6">
           Join the Beta – Spots Are Limited

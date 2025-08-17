@@ -13,12 +13,12 @@ const LandingPage = () => {
     <>
       <HeroSection />
       <ProblemSection />
-      <SolutionSection />
+      {/* <SolutionSection /> */}
       <FeatureHighlight />
-      <HowItWorks />
-      <ClosingSection />
       <BetaInvitationSection />
+      <HowItWorks />
       <SocialProofSection />
+      <ClosingSection />
       
     </>
   );
