@@ -46,7 +46,7 @@ export default function SocialProofSection() {
   }, []);
 
   return (
-    <section className="bg-[#001219] py-20 px-6 overflow-hidden">
+    <section className="bg-dark-color h-screen flex flex-col items-center justify-center py-20 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-[#FFFCF2] mb-4">
           Already Helping Freelancers Win More Work

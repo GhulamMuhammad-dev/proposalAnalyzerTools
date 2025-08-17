@@ -141,7 +141,7 @@ const UpworkProposalAnalyzer = () => {
             >
               {[
                 {
-                  text: "Their proposals sound like everyone else's.",
+                  text: "Your proposals sound like everyone else's.",
                   icon: "📝",
                 },
                 {
@@ -149,11 +149,11 @@ const UpworkProposalAnalyzer = () => {
                   icon: "🔍",
                 },
                 {
-                  text: "They don't match the client's tone and priorities.",
+                  text: "You don't match the client's tone and priorities.",
                   icon: "🎯",
                 },
                 {
-                  text: "Clients skip them before reading halfway.",
+                  text: "Clients skip You before reading halfway.",
                   icon: "⏱️",
                 },
               ].map((item, index) => (
@@ -237,207 +237,366 @@ const UpworkProposalAnalyzer = () => {
       </section>
 
       {/* Solution Section */}
-      <section className={`${classes.sectionPadding} relative overflow-hidden bg-dark-800`}>
- 
-
-
-  <div className={classes.container}>
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer}
-      className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10"
-    >
-      {/* Left Content */}
-      <motion.div 
-        variants={fadeInUp} 
-        className="lg:w-1/2"
-        whileHover={{ 
-          x: 5,
-          transition: { type: "spring", stiffness: 300 }
-        }}
-      >
-        <div className="relative">
+      <section className="relative bg-dark-color py-24 overflow-hidden ">
        
-          <h2 className={`${classes.heading2} mb-6 relative text-light-color`}>
-            Meet Your <span className="text-primary-color relative">
-              AI Proposal Coach
-              <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary-color"></span>
-            </span>
-          </h2>
-        </div>
-        
-        <p className={`${classes.paragraph} mb-6 text-light-color`}>
-          Our AI Upwork Proposal Analyzer reviews your proposal like a top-tier client would.
-        </p>
-        
-        <p className="text-lg mb-8 font-medium text-primary-color">
-          In seconds, it gives you:
-        </p>
-        
-        <ul className="space-y-4 mb-8">
-          {[
-            "A Proposal Score — see exactly how competitive your proposal is.",
-            "Actionable Feedback — fix weak points before the client ever sees them.",
-            "An AI-Enhanced Version — a polished, persuasive proposal that still sounds like you."
-          ].map((item, index) => (
-            <motion.li 
-              key={index}
-              variants={fadeInUp}
-              className="flex items-start group"
-              whileHover={{ x: 5 }}
-            >
-              <span className="flex-shrink-0 bg-dark-color text-primary-color rounded-full p-2 mr-4 group-hover:bg-primary-color group-hover:text-dark-color transition-colors duration-300">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span className="text-light-color group-hover:text-light-color/50 transition-colors duration-300">{item}</span>
-            </motion.li>
-          ))}
-        </ul>
-        
-        <motion.p 
-          variants={fadeInUp} 
-          className="text-xl font-medium text-light-100 mb-8 flex items-center"
-        >
-          <span className="mr-2">Stop guessing.</span>
-          <span className="text-primary-color flex items-center">
-            Start winning
-            <svg className="w-5 h-5 ml-1 animate-bounce-horizontal" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-            </svg>
-          </span>
-        </motion.p>
-        
-        <motion.div 
-          variants={fadeInUp}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <a href="#beta" className={`${classes.buttonPrimary} flex items-center justify-center gap-2  transition-all`}>
-            Try It Free
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </motion.div>
-      </motion.div>
 
-      {/* Right Content - Demo Card */}
-      <motion.div 
-        variants={fadeInUp} 
-        className="lg:w-1/2 w-full"
-        whileHover={{
-          scale: 1.02,
-          transition: { type: "spring", stiffness: 300 }
-        }}
-      >
-        <div className="relative">
-       
-          
-          {/* Card shadow effect */}
-          <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary-color/10 rounded-2xl -z-10"></div>
-          
-          {/* Main card */}
-          <div className="bg-dark-color rounded-2xl shadow-2xl overflow-hidden border border-light-color/20 relative z-10">
-            {/* Card header */}
-            <div className="bg-dark-800 p-4 flex items-center border-b border-dark-600">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="text-light-color text-sm font-mono mx-auto">proposal-analyzer.js</div>
-              <div className="w-8"></div> {/* Spacer for balance */}
-            </div>
-            
-            {/* Card content */}
-            <div className="p-6">
-              {/* Score section */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <h3 className="font-medium text-light-color flex items-center">
-                    <svg className="w-5 h-5 text-primary-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                    Proposal Score
-                  </h3>
-                  <span className="bg-dark-600 text-primary-color px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                    86/100
-                    <span className="ml-1 text-xs">⭐</span>
-                  </span>
-                </div>
-                <div className="w-full bg-dark-color rounded-full h-2.5 overflow-hidden">
-                  <div 
-                    className="bg-gradient-to-r from-primary-color/50 to-primary-color h-2.5 rounded-full relative"
-                    style={{ width: '86%' }}
-                  >
-                    <div className="absolute inset-0 bg-white/20 animate-pulse-slow"></div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Feedback sections */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          >
+            {/* Left Content - Text */}
+            <motion.div variants={fadeInUp} className="space-y-8">
+              {/* Badge */}
+              <motion.div
+                variants={fadeInUp}
+                className="inline-flex items-center px-4 py-2 rounded-full bg-dark-color border border-light-color text-primary-color text-sm font-medium"
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="relative flex h-2 w-2 mr-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-color opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-color"></span>
+                </span>
+                AI-Powered Proposal Assistant
+              </motion.div>
+
               <div className="space-y-6">
-                <div>
-                  <h4 className="font-medium text-light-color mb-3 flex items-center">
-                    <svg className="w-5 h-5 text-primary-color mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Strengths
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Clear value proposition in opening",
-                      "Good project understanding"
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start pl-2">
-                        <span className="flex-shrink-0 mt-1 mr-3 w-2 h-2 bg-primary-color rounded-full"></span>
-                        <span className="text-light-color">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-4xl md:text-5xl font-bold text-white leading-tight"
+                >
+                  Elevate Your{" "}
+                  <span className="text-transparent bg-clip-text bg-light-color">
+                    Freelance Success
+                  </span>{" "}
+                  with AI
+                </motion.h2>
+
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-xl text-light-color leading-relaxed"
+                >
+                  Our AI analyzes your Upwork proposals with the critical eye of
+                  top clients, giving you the competitive edge to win more
+                  projects.
+                </motion.p>
+              </div>
+
+              <motion.div
+                variants={fadeInUp}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
+                {[
+                  {
+                    icon: (
+                      <svg
+                        className="w-6 h-6 text-primary-color"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                        />
+                      </svg>
+                    ),
+                    title: "Smart Scoring",
+                    desc: "Get an instant rating of your proposal's competitiveness",
+                  },
+                  {
+                    icon: (
+                      <svg
+                        className="w-6 h-6 text-primary-color"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                        />
+                      </svg>
+                    ),
+                    title: "Actionable Edits",
+                    desc: "Specific suggestions to improve weak areas",
+                  },
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeInUp}
+                    className="p-6 bg-dark-color/20 rounded-xl border border-light-color hover:border-primary-color transition-all duration-300 group"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="p-2 bg-dark-color/20 rounded-lg group-hover:bg-primary-color/10 transition-colors">
+                        {feature.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">
+                          {feature.title}
+                        </h3>
+                        <p className="text-light-color mt-1">{feature.desc}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                variants={fadeInUp}
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+              >
+                <motion.a
+                  href="#beta"
+                  className="px-8 py-4 bg-gradient-to-r from-primary-color to-primary-color text-white font-medium rounded-lg flex items-center justify-center gap-2 transition-all "
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Try Free Analysis
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 5l7 7-7 7M5 5l7 7-7 7"
+                    />
+                  </svg>
+                </motion.a>
+
+                <motion.a
+                  href="#how-it-works"
+                  className="px-8 py-4 bg-dark-700 hover:bg-dark-color text-white font-medium rounded-lg flex items-center justify-center gap-2 transition-all border border-light-color"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  How It Works
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </motion.a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Content - Interactive Card */}
+            <motion.div
+              variants={fadeInUp}
+              className="relative"
+              whileHover={{
+                scale: 1.01,
+                transition: { type: "spring", stiffness: 300 },
+              }}
+            >
+              {/* Floating elements */}
+              
+
+              {/* Main card */}
+              <div className="relative bg-primary-color/20 rounded-2xl overflow-hidden border border-light-color/20 backdrop:blur-2xl  z-10">
+                {/* Card header */}
+                <div className="bg-dark-color px-6 py-4 border-b border-dark-600 flex items-center">
+                  <div className="flex space-x-2 mr-4">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="w-8"></div>
                 </div>
-                
-                <div>
-                  <h4 className="font-medium text-light-color mb-3 flex items-center">
-                    <svg className="w-5 h-5 text-primary-color mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+
+                {/* Card content */}
+                <div className="p-6">
+                  {/* Score section */}
+                  <div className="mb-8 bg-dark-color/20 p-6 rounded-xl border border-light-color/30">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="text-lg font-semibold text-white flex items-center">
+                        <svg
+                          className="w-5 h-5 text-primary-color mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                          />
+                        </svg>
+                        Proposal Quality Score
+                      </h3>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-primary-color mr-2">
+                          86
+                        </span>
+                        <span className="text-light-color">/100</span>
+                      </div>
+                    </div>
+
+                    <div className="w-full bg-dark-color rounded-full h-3 overflow-hidden mb-2">
+                      <div
+                        className="bg-gradient-to-r from-primary-color/50 to-primary-color h-3 rounded-full relative"
+                        style={{ width: "86%" }}
+                      >
+                        <div className="absolute inset-0 bg-white/10 animate-pulse-slow"></div>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-light-color mt-2">
+                      Better than 72% of proposals for this job
+                    </p>
+                  </div>
+
+                  {/* Feedback sections */}
+                  <div className="space-y-8">
+                    {/* Strengths */}
+                    <div className="bg-dark-color/20 p-5 rounded-xl border border-primary-color/20">
+                      <h4 className="font-semibold text-white mb-3 flex items-center">
+                        <svg
+                          className="w-5 h-5 text-primary-color mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        What's Working Well
+                      </h4>
+                      <ul className="space-y-3">
+                        {[
+                          "Strong opening that captures attention",
+                          "Clear demonstration of relevant experience",
+                          "Good understanding of client needs",
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="flex-shrink-0 mt-1 mr-3">
+                              <svg
+                                className="w-4 h-4 text-primary-color"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                            </span>
+                            <span className="text-light-color">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Improvements */}
+                    <div className="bg-dark-800/30 p-5 rounded-xl border border-yellow-500/20">
+                      <h4 className="font-semibold text-white mb-3 flex items-center">
+                        <svg
+                          className="w-5 h-5 text-yellow-500 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                        Suggested Improvements
+                      </h4>
+                      <ul className="space-y-3">
+                        {[
+                          "Add metrics to quantify past success (e.g. 'Increased conversions by 30%')",
+                          "Break long paragraphs into 2-3 sentences max",
+                          "Include a specific question to engage the client",
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="flex-shrink-0 mt-1 mr-3 animate-pulse">
+                              <svg
+                                className="w-4 h-4 text-yellow-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                                />
+                              </svg>
+                            </span>
+                            <span className="text-light-color">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <motion.button
+                    className="mt-8 w-full bg-gradient-to-r from-primary-color/60 to-primary-color/60 hover:from-primary-color hover:to-primary-color cursor-pointer text-white px-6 py-4 rounded-xl font-medium transition-all flex items-center justify-center gap-2 group hover:shadow-lg hover:shadow-primary-500/20"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span>Generate Optimized Version</span>
+                    <svg
+                      className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 5l7 7-7 7M5 5l7 7-7 7"
+                      />
                     </svg>
-                    Areas to Improve
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Add more specific metrics to showcase past success",
-                      "Shorten paragraphs for better readability"
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start pl-2">
-                        <span className="flex-shrink-0 mt-1 mr-3 w-2 h-2 bg-primary-color rounded-full animate-pulse"></span>
-                        <span className="text-light-300">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  </motion.button>
                 </div>
               </div>
-              
-              {/* CTA Button */}
-              <button className="mt-8 w-full bg-gradient-to-b from-primary-color to-primary-color hover:from-primary-color hover:to-primary-color/60 text-dark-900 px-6 py-3 rounded-lg font-medium transition-all flex items-center justify-center gap-2 group hover:shadow-lg hover:shadow-primary-500/20">
-                <span>Generate Improved Version</span>
-                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </motion.div>
-    </motion.div>
-  </div>
-</section>
+      </section>
 
       {/* Feature Highlights */}
-      <section className="bg-gray-900 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-dark-color py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -448,15 +607,16 @@ const UpworkProposalAnalyzer = () => {
               variants={fadeInUp}
               className="text-center mb-16 max-w-3xl mx-auto"
             >
-              <div className="inline-flex items-center mb-4 px-4 py-2 rounded-full bg-gray-800 border border-gray-700">
-                <span className="text-lime-400 text-sm font-medium">
+              <div className="inline-flex items-center mb-4 px-4 py-2 rounded-full bg-primary-color/10 border border-light-color/40">
+                <span className="text-primary-color text-sm font-medium">
                   Freelancer's Choice
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Why <span className="text-lime-400">Freelancers</span> Love It
+                Why <span className="text-primary-color">Freelancers</span> Love
+                It
               </h2>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-light-color">
                 Our AI-powered tools help you craft proposals that clients can't
                 ignore
               </p>
@@ -472,9 +632,9 @@ const UpworkProposalAnalyzer = () => {
                   description:
                     "Get a clear score with detailed reasoning so you know exactly where your proposal stands and how to improve it.",
                   icon: (
-                    <div className="p-3 rounded-xl bg-gray-800 inline-flex">
+                    <div className="p-3 rounded-xl bg-dark-light inline-flex">
                       <svg
-                        className="w-8 h-8 text-lime-400"
+                        className="w-8 h-8 text-primary-color"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -495,9 +655,9 @@ const UpworkProposalAnalyzer = () => {
                   description:
                     "Receive specific, actionable improvements for tone, clarity, and client appeal tailored to each proposal.",
                   icon: (
-                    <div className="p-3 rounded-xl bg-gray-800 inline-flex">
+                    <div className="p-3 rounded-xl bg-dark-color inline-flex">
                       <svg
-                        className="w-8 h-8 text-lime-400"
+                        className="w-8 h-8 text-primary-color"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -518,9 +678,9 @@ const UpworkProposalAnalyzer = () => {
                   description:
                     "Instantly generate a refined, professional version of your proposal with just one click.",
                   icon: (
-                    <div className="p-3 rounded-xl bg-gray-800 inline-flex">
+                    <div className="p-3 rounded-xl bg-dark-color inline-flex">
                       <svg
-                        className="w-8 h-8 text-lime-400"
+                        className="w-8 h-8 text-primary-color"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -541,15 +701,15 @@ const UpworkProposalAnalyzer = () => {
                   key={index}
                   variants={fadeInUp}
                   whileHover={{ y: -8 }}
-                  className="bg-gray-800/50 hover:bg-gray-800/70 border border-gray-700 rounded-2xl p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-lime-400/10"
+                  className="bg-dark-color  border border-primary-color rounded-2xl p-8 flex flex-col transition-all duration-300 "
                 >
                   <div className="mb-6">{feature.icon}</div>
                   <h3 className="text-2xl font-bold text-white mb-4">
                     {feature.title}
                   </h3>
                   <p className="text-gray-400 text-lg">{feature.description}</p>
-                  <div className="mt-6 pt-6 border-t border-gray-700">
-                    <button className="text-lime-400 font-medium flex items-center group">
+                  <div className="mt-6 pt-6 border-t border-light-color">
+                    <button className="text-primary-color font-medium flex items-center group">
                       Learn more
                       <svg
                         className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
@@ -583,9 +743,9 @@ const UpworkProposalAnalyzer = () => {
       {/* Beta Invitation */}
       <section
         id="beta"
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900"
+        className="h-screen px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-dark-color  to-dark-color"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto  ">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -593,7 +753,7 @@ const UpworkProposalAnalyzer = () => {
             className="text-center"
           >
             <motion.div variants={fadeInUp} className="mb-4">
-              <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-lime-500/10 text-lime-400">
+              <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-light-color/20 text-primary-color">
                 Exclusive Beta Access
               </span>
             </motion.div>
@@ -602,12 +762,12 @@ const UpworkProposalAnalyzer = () => {
               variants={fadeInUp}
               className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
             >
-              Join the <span className="text-lime-400">Limited</span> Beta
+              Join the <span className="text-primary-color">Limited</span> Beta
             </motion.h2>
 
             <motion.p
               variants={fadeInUp}
-              className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
+              className="text-xl text-light-color/70 max-w-3xl mx-auto mb-10 leading-relaxed"
             >
               We're hand-selecting a small group of freelancers to help shape
               the future of AI-powered proposals. Get early access and a
@@ -616,11 +776,11 @@ const UpworkProposalAnalyzer = () => {
 
             <motion.div
               variants={fadeInUp}
-              className="max-w-2xl mx-auto bg-gray-800/50 backdrop-blur-sm p-1 rounded-xl border border-gray-700 shadow-lg"
+              className="max-w-2xl mx-auto bg-dark-color backdrop-blur-sm p-1 rounded-xl border border-light-color/40 "
             >
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row gap-1 bg-gray-900/30 rounded-lg overflow-hidden"
+                className="flex flex-col sm:flex-row gap-1 bg-dark-color rounded-lg overflow-hidden"
               >
                 <input
                   type="email"
@@ -628,21 +788,21 @@ const UpworkProposalAnalyzer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your professional email"
                   required
-                  className="flex-grow px-6 py-4 bg-transparent text-white focus:outline-none placeholder-gray-500"
+                  className="flex-grow px-6 py-4 bg-transparent text-white focus:outline-none placeholder-primary-color/50"
                 />
                 <button
                   type="submit"
-                  className="relative overflow-hidden bg-gradient-to-r from-lime-500 to-lime-600 text-gray-900 px-8 py-4 font-semibold transition-all hover:shadow-lg hover:shadow-lime-500/20"
+                  className="relative overflow-hidden bg-primary-color text-gray-900 px-8 py-4 font-semibold transition-all "
                 >
                   <span className="relative z-10">Join Beta Waitlist</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-lime-600 to-lime-700 opacity-0 hover:opacity-100 transition-opacity"></span>
+                  <span className="absolute inset-0 bg-dark-color/20 opacity-0 hover:opacity-100 transition-opacity"></span>
                 </button>
               </form>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               variants={fadeInUp}
-              className="flex items-center justify-center mt-8 gap-4"
+              className="flex items-center justify-center mt-8 gap-4 animate-pulse"
             >
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4, 5].map((item) => (
@@ -662,11 +822,11 @@ const UpworkProposalAnalyzer = () => {
                 </span>{" "}
                 already joined
               </p>
-            </motion.div>
+            </motion.div> */}
 
             <motion.p
               variants={fadeInUp}
-              className="text-sm text-gray-500 mt-8 flex items-center justify-center gap-2"
+              className="text-sm text-light-color/60 mt-8 flex items-center justify-center gap-2"
             >
               <svg
                 className="w-4 h-4"
