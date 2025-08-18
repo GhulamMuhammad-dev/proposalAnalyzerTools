@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 @import "tailwindcss";
 
 
@@ -19,8 +22,8 @@
 /* Font variables */
 :root {
  
-  --font-heading: 'Geist', sans-serif;
-  --font-body: 'Lato', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
   --font-style: 'Oswald', sans-serif;
 
   --main-text-color: var(--color-dark-color);
@@ -43,7 +46,7 @@
     color: var(--main-text-color);
     font-family: var(--font-body);
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2 {
     font-family: var(--font-heading);
     /* font-family: var(--font-style); */
 
@@ -53,6 +56,45 @@
 
 /* Utilities */
 @layer utilities {
+
+
+    .hero_Header{
+      @apply  text-4xl font-bold text-center sm:text-6xl md:text-7xl md:text-start lg:text-8xl
+    }
+    .section_area{
+      @apply w-full h-screen relative flex  p-6 md:p-10 lg:p-20 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   .text-stroke {
     -webkit-text-stroke: 2px var(--color-primary-color);
