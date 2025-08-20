@@ -55,11 +55,29 @@
    .hero-subheading{
     @apply text-lg  md:text-xl
    }
+   .hero-content{
+    @apply md:w-[60%] flex gap-4 flex-col items-start 
+   }
    .body-heading{
-      @apply font-bold text-3xl bg-green-800 sm:text-5xl
+      @apply font-bold text-3xl  sm:text-5xl
    }
    .body-subheading{
-       @apply bg-blue-800 text-lg sm:text-xl
+       @apply  text-lg sm:text-xl
    }
+   .section-header{
+    @apply flex flex-col gap-2 md:mb-12 sm:w-[64%] lg:w-[40%]
+   }
+
+   .section-container{
+    @apply  relative flex flex-col gap-20 sm:items-start md:w-[100%]  sm:gap-8 
+   }
+
+
+ 
 }
 
+@layer components{
+  .basic-card-class{
+    @apply bg-black p-4 h-[250px]  border border-orange-400
+   }
+}

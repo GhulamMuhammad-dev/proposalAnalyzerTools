@@ -27,14 +27,14 @@ function Freelancer() {
 
   return (
     <section className="section-class ">
-    <div className="bg-amber-800 relative flex flex-col gap-20 sm:items-start md:w-[100%]  sm:gap-16 lg:gap-24">
-      <header className="flex flex-col gap-2 bg-pink-800 sm:w-[64%] lg:w-[40%]">
+    <div className="section-container">
+      <header className="section-header">
         <h2 className="body-heading">Why Freelancers Love It</h2>
       </header>
 
-      <ul className="grid gap-2  bg-orange-400 relative sm:grid-cols-2 md:grid-cols-4 ">
+      <ul className="grid gap-2   relative sm:grid-cols-2 md:grid-cols-4 ">
         {benefits.map((benefit, index) => (
-          <li key={index} className="bg-black p-4 h-[250px] md:h-[400px]">
+          <li key={index} className="basic-card-class md:h-[400px]">
               <div>{benefit.icon}</div>
              <h3 className="text-2xl font-semibold sm:text-3xl">
                 {benefit.title}
