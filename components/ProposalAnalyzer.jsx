@@ -199,7 +199,7 @@ export default function ProposalAnalyzer() {
           </div>
 
           {/* Tips Sidebar */}
-          <div className="bg-dark-color/70 rounded-xl p-6 shadow-lg border border-light-color/10 h-fit">
+          <div className="bg-dark-color/70 rounded-xl p-6 shadow-lg border border-light-color/10 h-full">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-lime-400">
               <FiAward />
               Proposal Tips
@@ -360,3 +360,5 @@ export default function ProposalAnalyzer() {
     </div>
   );
 }
+
+

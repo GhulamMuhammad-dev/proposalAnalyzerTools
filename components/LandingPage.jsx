@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import SocialProofSection from "./Practice/SocialProofSection";
-import HowItWorks from "./Practice/HowItWork";
+import HowItWorks from "./HowItWork";
 
 // Reusable utility classes with dark theme and lime color
 const classes = {

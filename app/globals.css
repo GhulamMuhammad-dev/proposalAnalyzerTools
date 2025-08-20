@@ -1,12 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 @import "tailwindcss";
-
 
 /* Enable dark mode */
 @custom-variant dark (&:is(.dark *));
@@ -16,26 +11,22 @@
   --color-mint-500: oklch(0.72 0.11 178);
   --color-dark-color:#001219;
   --color-light-color: #FFFCF2;
-  --color-primary-color: #A7C957;
+  --color-primary-color: #7EF187;
 }
 
 /* Font variables */
 :root {
- 
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Montserrat', sans-serif;
-  --font-style: 'Oswald', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+
 
   --main-text-color: var(--color-dark-color);
   --background-color: var(--color-light-color);
-  --color-purple: #231942;
 }
 
 .dark {
   --main-text-color: var(--color-light-color);
   --background-color: var(--color-dark-color);
-  --color-purple: #e0b1cb;
-
 
 }
 
@@ -48,87 +39,27 @@
   }
   h1, h2 {
     font-family: var(--font-heading);
-    /* font-family: var(--font-style); */
-
-    /* font-weight:900; */
   }
 }
 
-/* Utilities */
+/* ============================= */
+/* Reusable Utilities            */
+/* ============================= */
 @layer utilities {
-
-
-    .hero_Header{
-      @apply  text-4xl font-bold text-center sm:text-6xl md:text-7xl md:text-start lg:text-8xl
-    }
-    .section_area{
-      @apply w-full h-screen relative flex  p-6 md:p-10 lg:p-20 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .text-stroke {
-    -webkit-text-stroke: 2px var(--color-primary-color);
-    font-family: var(--font-style);
-    color: transparent;
-  }
- 
-  
-  .h1_heading_md{
-    @apply md:text-7xl md:text-center md:leading-18   sm:text-7xl sm:text-center sm:leading-16  text-4xl text-center leading-10  ;
-  
-  }
-
-  .hero_content_container{
-    @apply p-4 relative flex flex-col justify-center items-center   gap-8  sm:p-8 md:p-16;
-  }
-
-  .hero_headSub {
-    @apply max-w-4xl flex flex-col items-center gap-4 ;
-  }
-
-  .subHeading {
-    @apply text-4xl text-center font-bold  ;
-    font-family: var(--font-body);
-  }
-
-  .text-theme-purple {
-    color: var(--color-purple);
-  }
-  .bg-theme-purple {
-    background-color: var(--color-purple);
-  }
-  .my_container {
-    @apply w-full h-screen flex items-center justify-center;
-    background-color: var(--background-color);
-  }
+   .section-class{
+     @apply  bg-black w-full relative py-20 px-4 sm:py-28 sm:px-8 md:px-12 lg:px-16  
+   }
+   .hero-heading{
+    @apply text-5xl font-bold  sm:text-6xl md:text-7xl
+   }
+   .hero-subheading{
+    @apply text-lg  md:text-xl
+   }
+   .body-heading{
+      @apply font-bold text-3xl bg-green-800 sm:text-5xl
+   }
+   .body-subheading{
+       @apply bg-blue-800 text-lg sm:text-xl
+   }
 }
+
