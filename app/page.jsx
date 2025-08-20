@@ -9,6 +9,9 @@ import LandingPage from "@/components/LandingPage";
 import Freelancer from "@/components/Freelancer";
 import BeforeAfter from "@/components/BeforeAfter";
 import Testimonials from "@/components/Testimonials";
+import WithoutVsWith from "../components/WithoutVsWith";
+import PricingCTA from "@/components/PricingCTA";
+import FAQs from "@/components/FAQ";
 
 
 export default function Home() {
@@ -19,6 +22,9 @@ export default function Home() {
      <Freelancer />
      <BeforeAfter />
      <Testimonials />
+     <WithoutVsWith />
+     <PricingCTA />
+     <FAQs />
      
      {/* <Grid /> */}
      {/* <CustomGrid /> */}
