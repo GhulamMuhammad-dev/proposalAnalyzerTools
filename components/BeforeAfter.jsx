@@ -5,7 +5,10 @@ function BeforeAfter() {
     <section className="section-class">
     <div className="section-container">
       <header className="section-header">
-        <h2 className="body-heading">Before & After Example</h2>
+        <h2 className="body-heading">See the AI Advantage in Action</h2>
+         <p className="body-subheading">
+            Watch your plain proposals transform into persuasive pitches that clients can’t ignore.
+          </p>
       </header>
 
       <div className="grid gap-2   relative sm:grid-cols-2 ">
@@ -23,7 +26,7 @@ function BeforeAfter() {
         </div>
       </div>
 
-      <p className="text-lg bg-linear-to-l from-primaryColor-400 to-indigo-700 p-4 font-semibold">See the difference? That’s the power of AI-backed optimization.</p>
+      <p className="text-lg banner-gradient p-4 font-semibold rounded-full">See the difference? That’s the power of AI-backed optimization.</p>
      
 
       </div>

@@ -29,7 +29,10 @@ function Freelancer() {
     <section className="section-class ">
     <div className="section-container">
       <header className="section-header">
-        <h2 className="body-heading">Why Freelancers Love It</h2>
+        <h2 className="body-heading">Your Secret Weapon for Winning More Jobs</h2>
+        <p className="body-subheading">
+            Less stress. More clarity. Higher chances of hearing “You’re hired.”
+          </p>
       </header>
 
       <ul className="grid gap-2   relative sm:grid-cols-2 lg:grid-cols-4 ">

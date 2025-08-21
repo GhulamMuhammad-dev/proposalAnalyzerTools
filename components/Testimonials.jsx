@@ -20,7 +20,10 @@ function Testimonials() {
     <section className="section-class">
       <div className="section-container">
       <header className="section-header">
-        <h2  className="body-heading">What Freelancers Are Saying</h2>
+        <h2  className="body-heading">Trusted by Freelancers Who Actually Get Results</h2>
+         <p className="body-subheading">
+            Real users. Real success. Real proof that better proposals bring better clients.
+          </p>
       </header>
 
       <ul className="grid gap-2 relative sm:grid-cols-2 ">

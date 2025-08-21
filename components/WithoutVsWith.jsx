@@ -17,7 +17,11 @@ function WithoutVsWith() {
     <section className="section-class">
     <div className="section-container ">
       <header className="section-header">
-        <h2 className="body-heading ">Without vs. With Proposal Analyzer</h2>
+        <h2 className="body-heading ">The Freelancer Struggle Ends Here</h2>
+         <p className="body-subheading">
+            <span className="bg-primaryColor-400 text-darkColor p-2 rounded-full">Without it:</span> wasted time, silence, rejection.
+             <span className="bg-primaryColor-400 text-darkColor p-2 rounded-full">With it:</span> instant clarity, more responses, more clients.
+          </p>
       </header>
 
       <div className="grid w-full  relative gap-2 md:grid-cols-3">

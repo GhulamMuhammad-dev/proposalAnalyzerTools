@@ -34,9 +34,9 @@ export default function HowItWorks() {
       <div className=" section-container">
         {/* Section Heading */}
         <div className="section-header">
-          <h2 className="body-heading">How It Works</h2>
+          <h2 className="body-heading">From Draft to Deal in 4 Simple Steps</h2>
           <p className="body-subheading">
-            Follow these simple steps to transform your proposals instantly.
+            Paste your proposal → Get instant insights → Fix the weak spots → Send a client-ready version.
           </p>
         </div>
 

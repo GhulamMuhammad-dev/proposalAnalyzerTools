@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import "tailwindcss";
 
@@ -50,8 +52,9 @@
 
 /* Font variables */
 :root {
-  --font-body: 'Space Grotesk', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Poppins' , sans-serif;
+ 
   
 
 
@@ -74,6 +77,10 @@
   }
   h1, h2 {
     font-family: var(--font-heading);
+  }
+
+  h3,h4,h5,h6,p{
+    font-family: var(--font-body);
   }
 }
 
@@ -142,13 +149,17 @@
 
  .primary-gradient {
   @apply 
-    hover:bg-gradient-to-t hover:from-primaryColor-700 hover:via-primaryColor-300 hover:to-primaryColor-700
+    hover:bg-gradient-to-t hover:from-primaryColor-700 hover:via-primaryColor-300 hover:via-40% hover:to-primaryColor-700
     hover:text-darkColor text-lightColor font-semibold 
     rounded-lg 
     transition-all duration-500 ease-in-out 
-    bg-gradient-to-t from-primaryColor-300 via-primaryColor-700 to-primaryColor-300 
+    bg-gradient-to-t from-primaryColor-300 via-primaryColor-700 via-40% to-primaryColor-300 
      hover:scale-[1.02] ;
 }
+
+ .banner-gradient{
+  @apply  bg-linear-to-t from-primaryColor-500 to-primaryColor-900
+ }
 
 
 

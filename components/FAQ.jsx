@@ -31,7 +31,10 @@ function FAQs() {
     <section className="section-class">
       <div className="section-container">
         <header className="section-header">
-          <h2 className="body-heading">FAQs</h2>
+          <h2 className="body-heading">Everything You’re Wondering, Answered</h2>
+           <p className="body-subheading">
+            Straightforward answers so you know exactly what you’re getting.
+          </p>
         </header>
 
         <ul className={`grid gap-2 relative grid-rows-[${faqs.length}] w-full`}>

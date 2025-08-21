@@ -5,7 +5,10 @@ function PricingCTA() {
     <section className="section-class">
     <div className="section-container">
       <header className="section-header">
-        <h2 className="body-heading">Pricing / Free Trial CTA</h2>
+        <h2 className="body-heading">Test Drive It Free—No Card, No Risk</h2>
+        <p className="body-subheading">
+           Your first proposal analysis is on us. Get results before you even think about paying.
+          </p>
       </header>
       <div className="flex flex-col border-primaryColor-400 border rounded w-full items-center py-16 gap-2">
       <p className="text-xl font-semibold">Try it FREE today.</p>
