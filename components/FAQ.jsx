@@ -7,7 +7,7 @@ function FAQs() {
     {
       question: "Does it rewrite my proposal completely?",
       answer:
-        "No. You keep full control. The AI gives suggestions and an optimized version—you decide what to use.",
+        "No. You keep full control. The AI gives suggestions and an optimized version you decide what to use.",
     },
     {
       question: "Will it sound robotic?",
@@ -36,19 +36,19 @@ function FAQs() {
 
         <ul className={`grid gap-2 relative grid-rows-[${faqs.length}] w-full`}>
           {faqs.map((faq, index) => (
-            <li key={index} className="basic-card-class md:h-[100px]">
+            <li key={index} className="basic-card-class h-fit">
               <button
                 onClick={() => toggleFAQ(index)}
                 className="flex justify-between items-center w-full"
               >
-                <span>{faq.question}</span>
+                <span className="">{faq.question}</span>
                 {openIndex === index ? (
                   <FiChevronUp className="icon-class" />
                 ) : (
                   <FiChevronDown className="icon-class" />
                 )}
               </button>
-              {openIndex === index && <p>{faq.answer}</p>}
+              {openIndex === index && <p className="text-lg bg-amber-400 p-4 text-black mt-5">{faq.answer}</p>}
             </li>
           ))}
         </ul>

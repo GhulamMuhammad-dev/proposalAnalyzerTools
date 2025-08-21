@@ -12,6 +12,8 @@ import Testimonials from "@/components/Testimonials";
 import WithoutVsWith from "../components/WithoutVsWith";
 import PricingCTA from "@/components/PricingCTA";
 import FAQs from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
+
 
 
 export default function Home() {
@@ -25,6 +27,9 @@ export default function Home() {
      <WithoutVsWith />
      <PricingCTA />
      <FAQs />
+     <FinalCTA />
+     
+     
      
      {/* <Grid /> */}
      {/* <CustomGrid /> */}

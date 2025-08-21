@@ -23,7 +23,8 @@ function BeforeAfter() {
         </div>
       </div>
 
-      <p className="text-lg bg-amber-950 p-4 font-semibold">See the difference? That’s the power of AI-backed optimization.</p>
+      <p className="text-lg bg-linear-to-l from-primaryColor-400 to-indigo-700 p-4 font-semibold">See the difference? That’s the power of AI-backed optimization.</p>
+     
 
       </div>
     </section>

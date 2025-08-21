@@ -32,7 +32,7 @@ function Freelancer() {
         <h2 className="body-heading">Why Freelancers Love It</h2>
       </header>
 
-      <ul className="grid gap-2   relative sm:grid-cols-2 md:grid-cols-4 ">
+      <ul className="grid gap-2   relative sm:grid-cols-2 lg:grid-cols-4 ">
         {benefits.map((benefit, index) => (
           <li key={index} className="basic-card-class md:h-[400px]">
               <div>{benefit.icon}</div>
