@@ -1,22 +1,86 @@
 import OpenAI from "openai";
 
 const client = new OpenAI({
-  baseURL: process.env.GITHUB_MODELS_ENDPOINT || "https://models.github.ai/inference",
-  apiKey: process.env.GITHUB_TOKEN,
+  baseURL: process.env.OPENROUTER_BASE_URL || "https://openrouter.ai/api/v1",
+  apiKey: process.env.DEEPSEEK_API, // set in .env
 });
 
-const modelName = process.env.GITHUB_MODEL || "openai/gpt-4.1";
+const modelName = process.env.OPENROUTER_MODEL || "deepseek/deepseek-r1-0528:free";
 
 function safeParseJSON(maybe) {
   try {
-    return typeof maybe === "string" ? JSON.parse(maybe) : maybe;
-  } catch (e) {
+    if (typeof maybe !== "string") return maybe;
+    const stripped = maybe.trim().replace(/^```(?:json)?/i, "").replace(/```$/i, "").trim();
+    return JSON.parse(stripped);
+  } catch {
     return null;
   }
 }
 
-// --- Dummy fallback data ---
-function getDummyData(proposal) {
+const clamp01 = (n) => {
+  const num = Number(n);
+  if (!Number.isFinite(num)) return 0;
+  return Math.max(0, Math.min(10, num));
+};
+
+function normalizeSuggestions(raw) {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((it) => {
+      if (typeof it === "string") return { category: "General", suggestion: it };
+      return {
+        category: String(it?.category ?? "General"),
+        suggestion: String(it?.suggestion ?? it?.text ?? ""),
+      };
+    })
+    .filter((x) => x.suggestion);
+}
+
+function normalizeScores(raw) {
+  if (!raw) return {};
+  if (Array.isArray(raw)) {
+    const out = {};
+    for (const it of raw) {
+      const k = String(it?.name ?? it?.metric ?? "").trim();
+      if (!k) continue;
+      const v = clamp01(it?.score ?? it?.value);
+      out[k] = v;
+    }
+    return out;
+  }
+  if (typeof raw === "object") {
+    const out = {};
+    for (const [k, v] of Object.entries(raw)) {
+      out[k] = clamp01(v);
+    }
+    return out;
+  }
+  return {};
+}
+
+function normalizePayload(p) {
+  const overall = p?.overall_score ?? p?.overallScore ?? p?.score ?? 0;
+  const rewritten = p?.rewritten_proposal ?? p?.rewrittenProposal ?? p?.proposal ?? "";
+  const highImpact = p?.high_impact_changes ?? p?.highImpactChanges ?? p?.highImpact ?? [];
+
+  const out = {
+    overall_score: clamp01(overall),
+    scores: normalizeScores(p?.scores ?? p?.metrics),
+    suggestions: normalizeSuggestions(p?.suggestions),
+    rewritten_proposal: String(rewritten),
+    high_impact_changes: Array.isArray(highImpact) ? highImpact.map((x) => String(x)) : [],
+  };
+
+  if ((!Number.isFinite(out.overall_score) || out.overall_score === 0) && Object.keys(out.scores).length > 0) {
+    const vals = Object.values(out.scores);
+    const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+    out.overall_score = clamp01(Number(avg.toFixed(1)));
+  }
+
+  return out;
+}
+
+function getDummyData() {
   return {
     scores: {
       Personalization: 7,
@@ -40,96 +104,87 @@ function getDummyData(proposal) {
     ],
     rewritten_proposal: `Hi there,
 
-I understand you're looking for support and I can help you achieve strong results. I’ve worked on similar projects and know what it takes to deliver high-quality outcomes.
+You're looking for a reliable partner to deliver clear outcomes fast—I can help.
 
-Here’s how I’d approach your project:
-- Analyze requirements and highlight key goals  
-- Build a clear, efficient solution  
-- Ensure fast delivery with ongoing communication  
+**How I’ll approach it**
+- Clarify success metrics and timeline  
+- Build a lean, testable solution  
+- Keep communication crisp with short milestones  
 
-I’d be happy to bring this expertise to your project and ensure your expectations are exceeded.`,
+If this sounds good, I can share 1–2 relevant examples and a brief plan for Day 1–3.
+
+Best regards,  
+[Your Name]`,
     high_impact_changes: [
-      "Improve opening hook",
-      "Add a clear CTA",
-      "Reference client’s job description more directly",
+      "Strengthen the opening hook",
+      "Add a specific, single-step CTA",
+      "Reference the client’s job description directly",
     ],
+    _fallback: true,
   };
 }
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { proposal, clientName, jobDescription } = body;
+    const { proposal, clientName, jobDescription } = body || {};
 
-    if (!proposal || proposal.trim().length < 50) {
-      return new Response(JSON.stringify({ error: "Proposal must be at least 50 characters long" }), { status: 400 });
+    if (!proposal || String(proposal).trim().length < 50) {
+      return new Response(JSON.stringify({ error: "Proposal must be at least 50 characters long" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    const prompt = `You are an expert Upwork proposal coach and full-stack developer. Analyze the given freelancing proposal using the 13-point Winning Upwork Proposal Framework (Personalization, Hook, Social Proof, Solution Clarity, Portfolio Fit, CTA, Brevity, NoPrematureQuestions, Professional Tone, Profile Optimization, Strategic Targeting, TOS Compliance, Connects-Worthiness).
+    const prompt = `You are an expert Upwork proposal coach. Analyze the given freelancing proposal using a 13-point proposal framework and RETURN ONLY JSON (no prose, no markdown fences).
 
-Given input:
-- Client name (if provided): ${clientName || "(not provided)"}
-- Job description (if provided): ${jobDescription ? `"""${jobDescription.trim()}"""` : "(not provided)"}
-- Proposal: """${proposal.trim()}"""
+Input:
+- Client name: ${clientName || "(not provided)"}
+- Job description: ${jobDescription ? `"""${String(jobDescription).trim()}"""` : "(not provided)"}
+- Proposal: """${String(proposal).trim()}"""
 
-Produce EXACTLY valid JSON (no additional text) with the following shape:
+Output EXACTLY valid JSON with this shape:
 {
-  "scores": {
-    "Personalization": number (1-10),
-    "Hook": number (1-10),
-    "SocialProof": number (1-10),
-    "SolutionClarity": number (1-10),
-    "PortfolioFit": number (1-10),
-    "CTA": number (1-10),
-    "Brevity": number (1-10),
-    "NoPrematureQuestions": number (1-10),
-    "ProfessionalTone": number (1-10),
-    "ProfileOptimization": number (1-10),
-    "Targeting": number (1-10),
-    "TOSCompliance": number (1-10),
-    "ConnectsWorthiness": number (1-10)
-  },
-  "overall_score": number, // average of the 13 scores rounded to 1 decimal
-  "suggestions": [ { "category": string, "suggestion": string } ... ],
-  "rewritten_proposal": string (120-180 words, 3-5 paragraphs),
-  "high_impact_changes": [string ...] // short bullets of the top 3 things to change immediately
+  "scores": { "MetricName": number (0-10), ... },
+  "overall_score": number (0-10),
+  "suggestions": [ { "category": string, "suggestion": string }, ... ],
+  "rewritten_proposal": string (120-180 words, formatted in Markdown with paragraphs and bullets),
+  "high_impact_changes": [string, ...]
 }
 
-Rules:
-- Use client's name in rewrite if provided, otherwise use 'Hi there' or 'Hello'.
-- First 2 lines of rewritten_proposal must hook the reader by restating the problem and promising an outcome.
-- Rewritten proposal must include 2-3 short bullet points that clearly outline the approach.
-- Do NOT include contact info or any Upwork TOS violations. Keep language professional and concise.
-- If job description was provided, make the rewritten proposal reference specifics from it.
-
-Respond now with only JSON matching the schema above.`;
+Rules for rewritten_proposal:
+- Address client by name in the first line if provided, otherwise use 'Hi there'.
+- Use Markdown for formatting (paragraphs, bullets).
+- First 2 lines must restate the problem and promise an outcome.
+- Include 2-3 short bullet points that outline the approach.
+- End with 'Best regards, [Your Name]'.
+`;
 
     const aiRes = await client.chat.completions.create({
       model: modelName,
       messages: [
-        { role: "system", content: "You are a helpful Upwork proposal coach. Strictly return JSON as requested." },
+        { role: "system", content: "You are a helpful Upwork proposal coach. Return ONLY JSON as requested." },
         { role: "user", content: prompt },
       ],
-      temperature: 0.15,
+      temperature: 0.2,
       top_p: 0.95,
-      response_format: { type: "json_object" },
     });
 
-    const content = aiRes.choices?.[0]?.message?.content;
-    if (!content) throw new Error("No response from AI model");
+    const content = aiRes?.choices?.[0]?.message?.content;
+    if (!content) throw new Error("No response from model");
 
     const parsed = safeParseJSON(content);
-    if (!parsed) throw new Error("AI returned invalid JSON");
+    if (!parsed || typeof parsed !== "object") throw new Error("Model returned non-JSON or invalid JSON");
 
-    return new Response(JSON.stringify(parsed), {
+    const normalized = normalizePayload(parsed);
+
+    return new Response(JSON.stringify(normalized), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-
   } catch (err) {
     console.error("Proposal analysis error:", err);
-    // Return dummy fallback
-    return new Response(JSON.stringify(getDummyData("Fallback Proposal")), {
+    return new Response(JSON.stringify(getDummyData()), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
