@@ -1,13 +1,13 @@
 import React from 'react'
-import Freelancer from "@/components/Freelancer";
-import BeforeAfter from "@/components/BeforeAfter";
-import Testimonials from "@/components/Testimonials";
-import WithoutVsWith from "../components/WithoutVsWith";
-import PricingCTA from "@/components/PricingCTA";
-import FAQs from "@/components/FAQ";
-import FinalCTA from "@/components/FinalCTA";
-import HeroSection from "@/components/HeroSection";
-import HowItWorks from "@/components/HowItWork";
+import Freelancer from "@/components/landingPage/Freelancer";
+import BeforeAfter from "@/components/landingPage/BeforeAfter";
+import Testimonials from "@/components/landingPage/Testimonials";
+import WithoutVsWith from "./landingPage/WithoutVsWith";
+import PricingCTA from "@/components/landingPage/PricingCTA";
+import FAQs from "@/components/landingPage/FAQ";
+import FinalCTA from "@/components/landingPage/FinalCTA";
+import HeroSection from "@/components/landingPage/HeroSection";
+import HowItWorks from "@/components/landingPage/HowItWork";
 
 const LandingPage = () => {
   return (

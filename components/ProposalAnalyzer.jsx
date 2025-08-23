@@ -179,7 +179,7 @@ export default function ProposalAnalyzer() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-lightColor/80 mb-1">Job Description (Optional)</label>
-                  <input value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} placeholder="e.g. E-commerce website development" className="w-full px-4 py-3 bg-darkColor/50 border border-lightColor/10 rounded-lg focus:ring-2 focus:ring-primaryColor-500 focus:border-transparent text-lightColor" />
+                  <textarea  value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} placeholder="e.g. E-commerce website development" className="w-full px-4 py-3 bg-darkColor/50 border border-lightColor/10 rounded-lg focus:ring-2 focus:ring-primaryColor-500 focus:border-transparent text-lightColor" />
                 </div>
               </div>
 
